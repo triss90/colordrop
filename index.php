@@ -23,7 +23,7 @@ $randomID = (rand(1,$totalIDs));
             <input type="text" name="s" class="search" placeholder="Search (e.g. red, midnight, wood, green, chill or rose)">
         </form>
         <br>
-        <a href="/palette/?id=<?php echo $randomID; ?>">I'm Feeling Lucky!</a>
+        <a href="/palette/?id=<?php echo $randomID; ?>">I'm Feeling Lucky</a> · <a href="/liked>">Show my Liked Palettes</a> 
     </div>
 </header>
 
