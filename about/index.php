@@ -1,6 +1,6 @@
 <?php
 include("../_inc/_app.php");
-$app = new MyApp;
+$cd = new ColorDrop;
 include("../_inc/_functions.php");
 include("../_inc/header.php");
 ?>
@@ -14,6 +14,6 @@ include("../_inc/header.php");
 	</div>
 </main>
 
-<?php include("../_inc/scripts.php"); ?>
 <?php include("../_inc/footer.php"); ?>
+<?php include("../_inc/scripts.php"); ?>
 

@@ -1,10 +1,10 @@
 <?php
 include("_inc/_app.php");
-$app = new MyApp;
+$cd = new ColorDrop;
 include("_inc/_functions.php");
 include("_inc/header.php");
 
-$totalQuery= $app->DatabasePrepareQuery('SELECT COUNT(*) as count FROM palettes', array());
+$totalQuery= $cd->DatabasePrepareQuery('SELECT COUNT(*) as count FROM palettes', array());
 foreach ($totalQuery as $total) {
     $totalIDs = $total['count'];
 }
@@ -41,11 +41,11 @@ $randomID = (rand(1,$totalIDs));
             </div>
         </div>
         <!-- BuySellAds END -->
-    <?php foreach ($app->DatabasePrepareQuery('SELECT * FROM palettes ORDER BY created DESC LIMIT 64', array()) as $palette) { ?>
+    <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM palettes ORDER BY created DESC LIMIT 64', array()) as $palette) { ?>
         <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 medium-3 large-2">
             <div class="palette">
                 <div class="colors">
-                    <?php foreach ($app->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
+                    <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
                         <div onclick="copy('<?php echo $color['hex']; ?>', this)" id="<?php echo $color['id']; ?>" class="color" style="background-color: <?php echo $color['hex']; ?>">
                             <span class="hex"><?php echo $color['hex']; ?></span>
                         </div>
@@ -59,7 +59,7 @@ $randomID = (rand(1,$totalIDs));
                                 <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
                             </svg>
                             <span class="like-count">
-                                <?php echo $app->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($palette['id']))[0];?>
+                                <?php echo $cd->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($palette['id']))[0];?>
                             </span>
                         </button>
                         <a class="view" href="/palette/?id=<?php echo $palette['id'];?>">
@@ -99,67 +99,8 @@ $randomID = (rand(1,$totalIDs));
     </circle>
 </svg>
 
-<?php include("_inc/scripts.php"); ?>
-
-
-<script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
-
-<script>
-    /*******************/
-    /* Infinite Scroll */
-    /*******************/
-    let i = 1;
-    let processing;
-    $(window).scroll(function() {
-        if (processing) {
-            return false;
-        }
-        if($(window).scrollTop()+10 >= $(document).height() - $(window).height()) {
-            processing = true;
-            $.ajax(
-                '/_inc/_scroll.php?p='+i,
-                {
-                    success: function(data) {
-                        if (data.trim() !== '') {
-                            document.querySelector('#main .row').innerHTML += data;
-                            i++;
-                            processing = false;
-                            checkLikes();
-                        } else {
-                            document.querySelector('#loader').classList.add('hide');
-                        }
-                    },
-                    error: function() {
-                        console.log('Error loading colors');
-                    }
-                }
-            );
-        }
-    });
-    
-    /**************/
-    /* BuySellAds */
-    /**************/
-    (function() {
-      if (typeof _bsa !== 'undefined' && _bsa) {
-        _bsa.init('custom', 'CKYI42JJ', 'placement:wallcard-demo', {
-          target: '#wall-js',
-          template:
-            `
-            <a href="##statlink##" class="wall" style="background-color: ##backgroundColor##; color: ##textColor##" rel="sponsored noopener" target="_blank" title="##company## — ##tagline##">
-              <div class="wall__sponsor">Sponsored by ##company##</div>
-              <div class="wall__tagline">##companyTagline##</div>
-              <div class="wall__description">##description##</div>
-              <div class="wall__footer">
-                <div class="wall__image"><img src="##logo##"></div>
-                <div class="wall__cta" style="background-color: ##ctaBackgroundColor##; color: ##ctaTextColor##;">##callToAction##</div>
-              </div>
-            </a>
-            `
-        });
-      }
-    })();
-</script>
 
 <?php include("_inc/footer.php"); ?>
-
+<?php include("_inc/scripts.php"); ?>
+<script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
+<script src="/assets/js/front.min.js"></script>

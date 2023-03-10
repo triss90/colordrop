@@ -67,6 +67,23 @@ function scrollToTop() {
   });
 }
 
+// Display scroll-to-top link
+function toTop() {
+  let scrollTop = window.pageYOffset;
+  const toTop = document.querySelector('#totop');    
+  
+  window.addEventListener('scroll', function() {
+    scrollTop = window.pageYOffset;
+    if(scrollTop >= 350) {
+      toTop.classList.add('active');
+    }
+    if(scrollTop < 350) {
+      toTop.classList.remove('active');
+    }
+  });
+}
+toTop();
+
 // Check Likes from Local storage
 function checkLikes() {
     const palettes = document.querySelectorAll('.palette');

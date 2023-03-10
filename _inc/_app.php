@@ -6,7 +6,7 @@ error_reporting(E_ALL ^ E_NOTICE); // Enableing error reporting (except "notice"
 ini_set("display_errors", 1); // Enables error messages (set to 0 to hide)
 
 
-class MyApp {
+class ColorDrop {
 
     // Connect to a database (MySQL or SQLite)
     // Database credentials

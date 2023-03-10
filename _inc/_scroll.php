@@ -1,18 +1,18 @@
 <?php
 include('_app.php');
 include('_functions.php');
-$app = new MyApp;
+$cd = new ColorDrop;
 $page_number = $_GET['p'];
 $palettes_per_page = 64;
 $offset = $page_number * $palettes_per_page;
 ?>
 
 
-<?php foreach ($app->DatabasePrepareQuery('SELECT * FROM palettes ORDER BY created DESC LIMIT '.$palettes_per_page.' OFFSET '.$offset.'', array()) as $palette) { ?>
+<?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM palettes ORDER BY created DESC LIMIT '.$palettes_per_page.' OFFSET '.$offset.'', array()) as $palette) { ?>
     <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 medium-3 large-2">
          <div class="palette">
              <div class="colors">
-                 <?php foreach ($app->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
+                 <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
                      <div onclick="copy('<?php echo $color['hex']; ?>', this)" id="<?php echo $color['id']; ?>" class="color" style="background-color: <?php echo $color['hex']; ?>">
                          <span class="hex"><?php echo $color['hex']; ?></span>
                      </div>
@@ -26,7 +26,7 @@ $offset = $page_number * $palettes_per_page;
                              <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
                          </svg>
                          <span class="like-count">
-                             <?php echo $app->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($palette['id']))[0];?>
+                             <?php echo $cd->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($palette['id']))[0];?>
                          </span>
                      </button>
                      <a class="view" href="/palette/?id=<?php echo $palette['id'];?>">

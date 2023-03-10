@@ -1,6 +1,6 @@
 <?php
 include("../_inc/_app.php");
-$app = new MyApp;
+$cd = new ColorDrop;
 include("../_inc/_functions.php");
 include("../_inc/header.php");
 ?>
@@ -15,7 +15,7 @@ include("../_inc/header.php");
 
 <main id="main">
 	<div class="row">
-	<?php foreach ($app->DatabasePrepareQuery('SELECT * FROM gradients ORDER BY created DESC', array()) as $gradient) { ?>
+	<?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM gradients ORDER BY created DESC', array()) as $gradient) { ?>
 		<?php
 		$gradient_colors = "";
 		$color_array = explode(" ", $gradient['colors']);
@@ -36,7 +36,7 @@ include("../_inc/header.php");
 								<path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
 							</svg>
 							<span class="like-count">
-								<?php echo $app->DatabasePrepareQueryReturnFirstField("SELECT likes FROM likes WHERE palette = ?", array($gradient['id']))[0];?>
+								<?php echo $cd->DatabasePrepareQueryReturnFirstField("SELECT likes FROM likes WHERE palette = ?", array($gradient['id']))[0];?>
 							</span>
 						</button>
 						<!-- <a class="view" href="/palette/?id=<?php echo $gradient['id'];?>">
@@ -54,9 +54,5 @@ include("../_inc/header.php");
 	</div>
 </main>
 
-
-<?php include("../_inc/scripts.php"); ?>
-
-
 <?php include("../_inc/footer.php"); ?>
-
+<?php include("../_inc/scripts.php"); ?>

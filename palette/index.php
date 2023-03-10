@@ -1,18 +1,18 @@
 <?php
 include("../_inc/_app.php");
-$app = new MyApp;
+$cd = new ColorDrop;
 include("../_inc/_functions.php");
 include("../_inc/header.php");
 
 $paletteID = $_GET['id'];
-$categories = $app->DatabasePrepareQueryReturnFirstField("SELECT categories FROM palettes WHERE id = ?", array($paletteID));
+$categories = $cd->DatabasePrepareQueryReturnFirstField("SELECT categories FROM palettes WHERE id = ?", array($paletteID));
 $categories_array = explode(",", $categories[0]);
 $colorNameArr = array();
 $colorIDs = array();
-foreach ($app->DatabasePrepareQuery("SELECT * FROM colors WHERE palette = ?", array($paletteID)) as $colorName) {
+foreach ($cd->DatabasePrepareQuery("SELECT * FROM colors WHERE palette = ?", array($paletteID)) as $colorName) {
     array_push($colorNameArr, $colorName['name']);
 }
-foreach ($app->DatabasePrepareQuery("SELECT palette FROM colors WHERE name = ? OR name = ? OR name = ? OR name = ?", array($colorNameArr[0], $colorNameArr[1], $colorNameArr[2], $colorNameArr[3])) as $colorID) {
+foreach ($cd->DatabasePrepareQuery("SELECT palette FROM colors WHERE name = ? OR name = ? OR name = ? OR name = ?", array($colorNameArr[0], $colorNameArr[1], $colorNameArr[2], $colorNameArr[3])) as $colorID) {
     array_push($colorIDs, $colorID['palette']);
 }
 $colorIDs = array_unique($colorIDs);
@@ -25,6 +25,7 @@ $colorIDs = array_unique($colorIDs);
 <main>
     <section class="container">
         <div class="row between-medium">
+            <!-- Colors -->
             <div class="tiny-12 medium-7">
                 <div class="row">
                     <div class="tiny-7 medium-8">
@@ -49,12 +50,12 @@ $colorIDs = array_unique($colorIDs);
                                 <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
                             </svg>
                             <span class="like-count">
-                                <?php echo $app->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($paletteID))[0];?>
+                                <?php echo $cd->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($paletteID))[0];?>
                             </span>
                         </button>
                         
                         <p class="date" style="">
-                            <?php echo $app->DatabasePrepareQueryReturnFirstField("SELECT created FROM palettes WHERE id = ?", array($paletteID))[0];?>
+                            <?php echo $cd->DatabasePrepareQueryReturnFirstField("SELECT created FROM palettes WHERE id = ?", array($paletteID))[0];?>
                         </p>
                     </div>
                     <div class="tiny-12">
@@ -63,14 +64,9 @@ $colorIDs = array_unique($colorIDs);
                     <?php
                     $hexColors = array();
                     $i = 1;
-                    foreach ($app->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ? ', array($paletteID)) as $color) {
+                    foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ? ', array($paletteID)) as $color) {
                         array_push($hexColors, $color['hex']);
                         $hsl = explode(",", $color['hsl']);
-                        // $hsv = explode(",", $color['hsv']);
-                        // $cmyk = explode(",", $color['cmyk']);
-                        // echo $color['palette.id'];
-                        // echo $color['id'];
-                        // var_dump($paletteID);
                         ?>
                         <div id="<?php echo $color['id']; ?>" class="tiny-12 small-6">
                             <div class="color-single">
@@ -131,45 +127,45 @@ $colorIDs = array_unique($colorIDs);
                             </div>
                             <?php $i++; ?>
                         </div>
-                    <?php } 
-                    //var_dump($hexColors);
-                    ?>
+                    <?php } ?>
                 </div>
             </div>
-            <style>
-            :root {
-                --color-1: <?php echo $hexColors[0]; ?>;
-                --color-2: <?php echo $hexColors[1]; ?>;
-                --color-3: <?php echo $hexColors[2]; ?>;
-                --color-4: <?php echo $hexColors[3]; ?>;
-            }
-            .checkbox-input:checked ~ label {
-                background: var(--color-2) !important;
-            }
-            .checkbox-input:checked ~ label:after {
-                background: var(--color-2) !important;
-                filter: grayscale(30%);
-            }
-            .range-slider__range:active::-moz-range-thumb,
-            .range-slider__range::-moz-range-thumb:hover {
-                background: var(--color-3);                              
-            }
-            .range-slider__range::-moz-range-thumb,
-            .range-slider__range::-webkit-slider-thumb,
-            .range-slider__value {
-                background: var(--color-2);
-            }
-            .range-slider__value {
-                background: var(--color-2);
-            }
-            .range-slider__range:focus::-webkit-slider-thumb {
-              box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--color-3);
-            }
-            .range-slider__value:after {
-                border-right: 7px solid var(--color-2);
-            }
-            </style>
+            
+            <!-- Live UI Demo Kit -->
             <div class="tiny-12 medium-4 center-tiny">
+                <style>
+                :root {
+                    --color-1: <?php echo $hexColors[0]; ?>;
+                    --color-2: <?php echo $hexColors[1]; ?>;
+                    --color-3: <?php echo $hexColors[2]; ?>;
+                    --color-4: <?php echo $hexColors[3]; ?>;
+                }
+                .checkbox-input:checked ~ label {
+                    background: var(--color-2) !important;
+                }
+                .checkbox-input:checked ~ label:after {
+                    background: var(--color-2) !important;
+                    filter: grayscale(30%);
+                }
+                .range-slider__range:active::-moz-range-thumb,
+                .range-slider__range::-moz-range-thumb:hover {
+                    background: var(--color-3);                              
+                }
+                .range-slider__range::-moz-range-thumb,
+                .range-slider__range::-webkit-slider-thumb,
+                .range-slider__value {
+                    background: var(--color-2);
+                }
+                .range-slider__value {
+                    background: var(--color-2);
+                }
+                .range-slider__range:focus::-webkit-slider-thumb {
+                  box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--color-3);
+                }
+                .range-slider__value:after {
+                    border-right: 7px solid var(--color-2);
+                }
+                </style>
                 <h2 style="margin-top:0;">Live UI Kit Demo</h2>
                 <p>Change the colors and see a live preview</p>
                 
@@ -347,15 +343,14 @@ $colorIDs = array_unique($colorIDs);
                           <p>Need help? <a style="color:var(--color-1);"href="#0">Contact support</a></p>
                       </div>
                   </div>
-                  
                 </div>
-                
             </div>
         </div>
     </section>
     
-    <!-- Similar Colors -->
+    
     <section class="container">
+        <!-- Similar Colors -->
         <div class="row">
             <div class="tiny center-tiny">
                 <br><br><hr><br><br>
@@ -367,8 +362,8 @@ $colorIDs = array_unique($colorIDs);
                     $categoryList .= $category.",";
                 }
                 $categoryList = rtrim($categoryList, ',');
-                $palettes = $app->DatabasePrepareQuery('SELECT * FROM palettes WHERE categories = ?', array($categoryList));
-                $morePalettes = $app->DatabasePrepareQuery('SELECT count(id) as count FROM palettes WHERE categories = ?', array($categoryList));
+                $palettes = $cd->DatabasePrepareQuery('SELECT * FROM palettes WHERE categories = ?', array($categoryList));
+                $morePalettes = $cd->DatabasePrepareQuery('SELECT count(id) as count FROM palettes WHERE categories = ?', array($categoryList));
                 foreach ($morePalettes as $palette) {
                     $showMorePalettes = $palette['count'];
                 }
@@ -384,7 +379,7 @@ $colorIDs = array_unique($colorIDs);
                 <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4">
                     <div class="palette">
                         <div class="colors">
-                            <?php foreach ($app->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
+                            <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
                                 <div onclick="copy('<?php echo $color['hex']; ?>', this)" id="<?php echo $color['id']; ?>" class="color" style="background-color: <?php echo $color['hex']; ?>">
                                     <span class="hex"><?php echo $color['hex']; ?></span>
                                 </div>
@@ -398,7 +393,7 @@ $colorIDs = array_unique($colorIDs);
                                         <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
                                     </svg>
                                     <span class="like-count">
-                                        <?php echo $app->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($palette['id']))[0];?>
+                                        <?php echo $cd->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($palette['id']))[0];?>
                                     </span>
                                 </button>
                                 <a class="view" href="/palette/?id=<?php echo $palette['id'];?>">
@@ -414,7 +409,9 @@ $colorIDs = array_unique($colorIDs);
                 </div>
             <?php } ?>
         <?php } ?>
-        </div> 
+        </div>
+         
+        <!-- Search for other colors -->
         <div class="row">
             <div class="tiny center-tiny">
                 <br><h2>Find another color or palette:</h2>
@@ -424,171 +421,11 @@ $colorIDs = array_unique($colorIDs);
             </div>
         </div>
     </section>
+    
 </main>
 
-<?php include("../_inc/scripts.php"); ?>
-
-<script src="/assets/js/jscolor.min.js"></script>
-<script>
-    jscolor.presets.default = {
-       position: 'right', 
-       width: 181, 
-       height: 121,
-       palette: '#fff #fcd #fdc #ffc #dfc #dff #cdf #dcf #ccc', 
-       paletteCols: 9, 
-       paletteHeight: 25,
-       padding: 16, 
-       sliderSize: 25, 
-       borderRadius: 4,
-       borderWidth: 0, 
-       controlBorderWidth: 1, 
-       pointerBorderWidth: 2,
-       borderColor: '#f1f1f1', 
-       controlBorderColor: '#ddd', 
-       backgroundColor: '#f9f9f9', 
-       shadowColor: 'rgba(0,0,0,0.2)',
-       closeButton: true, 
-       closeText: 'OK', 
-       buttonColor: '#333',
-    }
-    
-    // HEX to HSL
-    function hexToHSL(hex) {
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        r = parseInt(result[1], 16);
-        g = parseInt(result[2], 16);
-        b = parseInt(result[3], 16);
-        r /= 255, g /= 255, b /= 255;
-        var max = Math.max(r, g, b), min = Math.min(r, g, b);
-        var h, s, l = (max + min) / 2;
-        if(max == min){
-          h = s = 0; // achromatic
-        } else {
-          var d = max - min;
-          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-          switch(max){
-            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-            case g: h = (b - r) / d + 2; break;
-            case b: h = (r - g) / d + 4; break;
-          }
-          h /= 6;
-        }
-      var HSL = new Object();
-      HSL['h']=h;
-      HSL['s']=s;
-      HSL['l']=l;
-      return HSL;
-    }
-    
-    // RGB to HSL
-    function RGBToHSL(r,g,b) {
-        // Make r, g, and b fractions of 1
-        r /= 255;
-        g /= 255;
-        b /= 255;
-        
-        // Find greatest and smallest channel values
-        let cmin = Math.min(r,g,b),
-          cmax = Math.max(r,g,b),
-          delta = cmax - cmin,
-          h = 0,
-          s = 0,
-          l = 0;
-        // Calculate hue
-        // No difference
-        if (delta == 0)
-         h = 0;
-        // Red is max
-        else if (cmax == r)
-         h = ((g - b) / delta) % 6;
-        // Green is max
-        else if (cmax == g)
-         h = (b - r) / delta + 2;
-        // Blue is max
-        else
-         h = (r - g) / delta + 4;
-        
-        h = Math.round(h * 60);
-         
-        // Make negative hues positive behind 360°
-        if (h < 0)
-           h += 360;
-        // Calculate lightness
-          l = (cmax + cmin) / 2;
-        
-          // Calculate saturation
-          s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-            
-          // Multiply l and s by 100
-          s = +(s * 100).toFixed(1);
-          l = +(l * 100).toFixed(1);
-        
-          return "hsl(" + h + "," + s + "%," + l + "%)";
-         
-    }
- 
-    function update(picker, id) {
-        var r = document.querySelector(':root');
-        document.documentElement.style.setProperty('--color-'+id, picker.toHEXString());
-        
-        // Get inputs
-        let hexInput = document.getElementById('hex-input-'+id);
-        let rgbInput = document.getElementById('rgb-input-'+id);
-        let hslInput = document.getElementById('hsl-input-'+id);
-        
-        // Hex
-        hexInput.value = picker.toHEXString();
-        
-        // RBG
-        let formattedRGB = picker.toRGBAString().replace("rgba(","");
-        formattedRGB = formattedRGB.replace(",1)","");
-        formattedRGB = formattedRGB.split(',');
-        rgbInput.value = picker.toRGBAString();
-        
-        // HSL
-        hslInput.value = RGBToHSL(formattedRGB[0],formattedRGB[1],formattedRGB[2]);
-        
-    }
-       
-    // Slider example   
-    var rangeSlider = function(){
-      var slider = $('.range-slider'),
-          range = $('.range-slider__range'),
-          value = $('.range-slider__value');
-      slider.each(function(){
-        value.each(function(){
-          var value = $(this).prev().attr('value');
-          $(this).html(value);
-        });
-        range.on('input', function(){
-          $(this).next(value).html(this.value);
-        });
-      });
-    };
-    rangeSlider();
-    
-    // Copy color codes
-    function copyToClipboard(el, button) {
-        const textBox = document.getElementById(el);
-        const buttonElement = button;
-        const notification = document.querySelector('.notification');
-        const copyText = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-           <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
-           <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
-        </svg>`;
-        const checkText = "&#10003;";
-        
-        textBox.select();
-        document.execCommand("copy");        
-        buttonElement.innerHTML = checkText;
-        const timeout = setTimeout(function(){
-            buttonElement.innerHTML = copyText;
-            clearTimeout(timeout);
-        }, 1500);
-    }
-    
-</script>
-
 <?php include("../_inc/footer.php"); ?>
+<?php include("../_inc/scripts.php"); ?>
+<script src="/assets/js/jscolor.min.js"></script>
+<script src="/assets/js/palette.min.js"></script>
 

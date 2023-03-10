@@ -7,23 +7,5 @@
 	<div class="close-button" onclick="carbonAdToggle(this)">&#10005;</div>
 	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIP2QL&placement=colordropio" id="_carbonads_js"></script>
 </div>
-<script>
-	// Display scroll-to-top link
-	function toTop() {
-		let scrollTop = window.pageYOffset;
-		const toTop = document.querySelector('#totop');    
-		
-		window.addEventListener('scroll', function() {
-			scrollTop = window.pageYOffset;
-			if(scrollTop >= 350) {
-				toTop.classList.add('active');
-			}
-			if(scrollTop < 350) {
-				toTop.classList.remove('active');
-			}
-		});
-	}
-	toTop();
-</script>
 </body>
 </html>
