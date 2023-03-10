@@ -64,12 +64,3 @@
 		</a>
 	</nav>
 </div>
-
-<pre>
-<?php
-	//Color Dropdown Content
-	// foreach ($cd->DatabasePrepareQuery('SELECT name,hex,COUNT(*) FROM colors GROUP BY Name ORDER BY hsl', array()) as $gradient) { 
-	// 	echo "<span style='margin-left:0.5rem;position:relative;top:1px;border-radius:50%;height:14px;width:14px;display:inline-block;background:".$gradient["hex"]."'></span> ".$gradient["name"] ." (". $gradient["COUNT(*)"].")<br>";
-	// }
-?>
-</pre>
