@@ -1,0 +1,10 @@
+footer {
+	padding: 3rem 0;
+	@media(max-width: 768px) {
+		padding: 3rem 0 9rem 0;
+	}
+	text-align: center;
+	p {
+		text-align: center;
+	}
+}

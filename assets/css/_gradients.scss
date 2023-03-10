@@ -1,0 +1,70 @@
+body#gradients {
+	main {
+		padding-top: 80px;
+	}
+}
+
+.gradient {
+	border-radius: 5px;
+	background: var(--palette-color);
+	box-shadow: 0px 10px 40px -10px rgba(0, 64, 128, 0.2);
+	padding: var(--gutter);
+	text-decoration: none;
+	margin-bottom: var(--gutter);
+	padding-top: 145px;
+	.footer {
+		display: flex;
+		justify-content: space-between;
+		.likes {
+		  padding: 0 5px 4px 5px;
+		  border: 1px solid var(--border-color);
+		  border: 0;
+		  background: none;
+		  border-radius: 4px;
+		  color: var(--text-color);
+		  cursor: pointer;
+		  text-decoration: none;
+		  font-size: .85rem;
+		  display: inline-block;
+		  vertical-align: bottom;
+		  position: relative;
+		  height: 25px;
+		  font-weight: bold;
+		  text-shadow: 0 0 1px black;
+		  color: white;
+		  &:hover {
+			background: var(--text-color);
+		  }
+		  .heart{
+			width: 1rem;
+			height: 1rem;
+			position: relative;
+			top: 3px;
+			fill: #ff7474;
+		  }
+		  &.liked {
+			border-color: #ff5a5a;
+			background: #ff7474;
+			&:hover {
+			  border-color: #ff8d8d;
+			  background: #ffdada;
+			  .heart {
+				fill: #ff8d8d;
+			  }
+			}
+			.heart {
+			  fill: #fff3f3;
+			}
+		  }
+		}
+		.date {
+		  font-size: .85rem;
+		  margin-top: 0.3rem;
+		  font-weight: bold;
+		  color: var(--text-color);
+		  text-shadow: 0 0 1px black;
+		  color: white;
+		  text-decoration: none;
+		}
+	}
+}
