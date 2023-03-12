@@ -15,47 +15,16 @@ body#gradients {
 	.footer {
 		display: flex;
 		justify-content: space-between;
-		.likes {
-		  padding: 0 5px 4px 5px;
-		  border: 1px solid var(--border-color);
-		  border: 0;
-		  background: none;
-		  border-radius: 4px;
-		  color: var(--text-color);
-		  cursor: pointer;
-		  text-decoration: none;
-		  font-size: .85rem;
-		  display: inline-block;
-		  vertical-align: bottom;
-		  position: relative;
-		  height: 25px;
-		  font-weight: bold;
-		  text-shadow: 0 0 1px black;
-		  color: white;
-		  &:hover {
-			background: var(--text-color);
-		  }
-		  .heart{
-			width: 1rem;
-			height: 1rem;
-			position: relative;
-			top: 3px;
-			fill: #ff7474;
-		  }
-		  &.liked {
-			border-color: #ff5a5a;
-			background: #ff7474;
+		.code {
+			color: white;
+			svg {
+				position: relative;
+				top: 4px;
+				filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.4));
+			}
 			&:hover {
-			  border-color: #ff8d8d;
-			  background: #ffdada;
-			  .heart {
-				fill: #ff8d8d;
-			  }
+				color: #1eafed;
 			}
-			.heart {
-			  fill: #fff3f3;
-			}
-		  }
 		}
 		.date {
 		  font-size: .85rem;
