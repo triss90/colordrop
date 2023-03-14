@@ -40,6 +40,13 @@ a {
   font-size: 0.9rem;
 }
 
+p {
+  font-size: 1rem;
+}
+#about p {
+  font-size: 1.25rem;
+}
+
 .tag {
   background:  var(--border-color);
   color: var(--text-color-2) !important;
@@ -84,3 +91,4 @@ h1.linear-wipe {
     }
   }
 }
+
