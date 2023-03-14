@@ -1,6 +1,6 @@
 // JSColor
 jscolor.presets.default = {
-   position: 'right', 
+   position: 'bottom', 
    width: 181, 
    height: 121,
    palette: '#fff #fcd #fdc #ffc #dfc #dff #cdf #dcf #ccc', 
