@@ -515,7 +515,8 @@ button.preview:hover + svg.edit-indicator  {
   background: red;
 }
 
-.button {
+a.button,
+.button button.button {
   background-color: #cf245f;
   background-image: linear-gradient(to bottom right, #FFD26B, #F782A9, #F782A9);
   border: 0;
@@ -535,12 +536,14 @@ button.preview:hover + svg.edit-indicator  {
   touch-action: manipulation;
   margin: 0 0.5rem;
   text-decoration: none;
+  box-shadow: 0px 10px 40px -10px rgba(0, 64, 128, 0.2);
   position: relative;
   top: 0;
   transition: top 150ms ease-in-out;
 }
-.button::hover {
-  box-shadow: none;
+a.button:hover,
+.button button.button:hover {
+  box-shadow: 0px 10px 40px -10px rgba(0, 64, 128, 0.2);
   text-decoration: none;
   top: -5px;
 }
@@ -553,7 +556,6 @@ button.preview:hover + svg.edit-indicator  {
   text-decoration: none;
   margin-bottom: var(--gutter);
   height: calc(100% - var(--gutter));
-  width: 100%;
 }
 
 #wall-js .wall img {
