@@ -22,8 +22,9 @@ $randomID = (rand(1,$totalIDs));
         <form action="/search" method="GET">
             <input type="text" name="s" class="search" placeholder="Search (e.g. red, midnight, wood, green, chill or rose)">
         </form>
-        <br>
-        <a href="/palette/?id=<?php echo $randomID; ?>">I'm Feeling Lucky</a> · <a href="/liked>">Show my Liked Palettes</a> 
+        <br><br>
+        <a class="button" href="/palette/?id=<?php echo $randomID; ?>">I'm Feeling Lucky</a>
+        <a class="button" href="/liked>">Show Favourites</a> 
     </div>
 </header>
 
@@ -32,12 +33,12 @@ $randomID = (rand(1,$totalIDs));
         <!-- BuySellAds START -->
         <div class="tiny-12 small-4 medium-3 large-4">
             <div id="wall-js">
-                <div class="cloudservers">
+                <!-- <div class="cloudservers">
                     <small>Sponsored by cloudservers.dk</small>
                     <img src="/assets/img/Cloudservers-lightblue.png" alt="Cloudservers Logo">
                     <small>Cloudservers.dk. Designed for Performance. Built for everything!</small>
                     <a href="https://cloudservers.dk?referral=colordrop" target="_blank" class="button">Try for free</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- BuySellAds END -->
