@@ -29,7 +29,7 @@ code {
 }
 
 a {
-  color: #1eafed;
+  color: var(--highlight-1);
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -42,8 +42,12 @@ a {
 
 p {
   font-size: 1rem;
+  &.large {
+    font-size: 1.25rem;
+  }
 }
-#about p {
+#about p,
+#scan p  {
   font-size: 1.25rem;
 }
 
