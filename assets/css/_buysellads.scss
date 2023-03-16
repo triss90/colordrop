@@ -11,18 +11,42 @@
 #wall-js .wall img {
 	max-width: 100%;
 }
+#wall-js a.wall {
+  width: 100%;
+}
 #wall-js .wall .wall__cta {
 	padding: 0.5rem 0;
 	border-radius: 3px;
 }
 #wall-js .wall .wall__sponsor {
 	font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
 }
 #wall-js .wall .wall__tagline {
 	font-style: italic;
+  font-size: 0.8rem;
+  text-align: center;
 }
 #wall-js .wall .wall__description {
-	font-size: 0.9rem;
+	font-size: 0.8rem;
+  text-align: center;
+}
+
+#wall-js .wall .wall__footer {
+  display: flex !important;
+}
+#wall-js .wall .wall__cta {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+#wall-js .wall .wall__image {
+  text-align: center;
+  width: 50%;
 }
 
 .cloudservers {
