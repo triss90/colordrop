@@ -31,7 +31,7 @@ $randomID = (rand(1,$totalIDs));
 <main id="main">
     <div class="row">
         <!-- BuySellAds START -->
-        <div class="tiny-12 small-4 medium-3 large-4">
+        <div class="tiny-12 small-8 medium-6 large-4">
             <div id="wall-js">
                 <!-- <div class="cloudservers">
                     <small>Sponsored by cloudservers.dk</small>
