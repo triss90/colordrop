@@ -1,0 +1,27 @@
+.button {
+  background-color: #cf245f;
+  background-image: linear-gradient(to bottom right, #FFD26B, #F782A9, #F782A9);
+  border: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  line-height: 1.75rem; /* 28px */
+  padding: 1rem 1.25rem;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  position: relative;
+  top: 0;
+  transition: top 150ms ease-in-out;
+  &::hover {
+    box-shadow: none;
+    text-decoration: none;
+    top: -5px;
+  }
+}

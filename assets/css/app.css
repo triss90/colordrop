@@ -17,6 +17,7 @@
     --background-color: #fff;
     --palette-color: #fff;
     --text-color: #333;
+    --text-color-inverted: #f4f4f4;
     --text-color-2: #999;
     --highlight-1: #1eafed;
   }
@@ -27,6 +28,7 @@
     --background-color: #25252a;
     --palette-color: #111;
     --text-color: #f4f4f4;
+    --text-color-inverted: #333;
     --text-color-2: #91919a;
     --highlight-1: #1eafed;
   }
@@ -349,7 +351,7 @@ hr {
   flex-wrap: nowrap;
 }
 .palette .colors .color {
-  height: 125px;
+  height: 140px;
   width: 25%;
   flex-basis: 25%;
   position: relative;
@@ -513,6 +515,36 @@ button.preview:hover + svg.edit-indicator  {
   background: red;
 }
 
+.button {
+  background-color: #cf245f;
+  background-image: linear-gradient(to bottom right, #FFD26B, #F782A9, #F782A9);
+  border: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.125rem;
+  /* 18px */
+  font-weight: 600;
+  line-height: 1.75rem;
+  /* 28px */
+  padding: 1rem 1.25rem;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  position: relative;
+  top: 0;
+  transition: top 150ms ease-in-out;
+}
+.button::hover {
+  box-shadow: none;
+  text-decoration: none;
+  top: -5px;
+}
+
 #wall-js {
   border-radius: 5px;
   background: var(--palette-color);
@@ -521,10 +553,15 @@ button.preview:hover + svg.edit-indicator  {
   text-decoration: none;
   margin-bottom: var(--gutter);
   height: calc(100% - var(--gutter));
+  width: 100%;
 }
 
 #wall-js .wall img {
   max-width: 100%;
+}
+
+#wall-js a.wall {
+  width: 100%;
 }
 
 #wall-js .wall .wall__cta {
@@ -534,14 +571,36 @@ button.preview:hover + svg.edit-indicator  {
 
 #wall-js .wall .wall__sponsor {
   font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 #wall-js .wall .wall__tagline {
   font-style: italic;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 #wall-js .wall .wall__description {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+#wall-js .wall .wall__footer {
+  display: flex !important;
+}
+
+#wall-js .wall .wall__cta {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+#wall-js .wall .wall__image {
+  text-align: center;
+  width: 50%;
 }
 
 .cloudservers {
@@ -932,7 +991,7 @@ footer p {
   padding: 0 1rem 1rem 1rem;
   gap: 1rem;
 }
-.ui-exmaple .header .button-grp .button {
+.ui-exmaple .header .button-grp .btn {
   width: calc(50% - 1rem);
   margin: 0 auto;
   display: block;
@@ -946,12 +1005,12 @@ footer p {
   position: relative;
   top: 0;
 }
-.ui-exmaple .header .button-grp .button:hover {
+.ui-exmaple .header .button-grp .btn:hover {
   top: -3px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   opacity: 0.8;
 }
-.ui-exmaple .header .button-grp .button span {
+.ui-exmaple .header .button-grp .btn span {
   background-color: inherit;
   background-clip: text;
   -webkit-background-clip: text;
