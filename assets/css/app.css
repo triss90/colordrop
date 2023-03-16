@@ -98,11 +98,6 @@ p.large {
   font-size: 1.25rem;
 }
 
-#about p,
-#scan p   {
-  font-size: 1.25rem;
-}
-
 .tag {
   background: var(--border-color);
   color: var(--text-color-2) !important;
