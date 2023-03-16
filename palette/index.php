@@ -262,8 +262,8 @@ $colorIDs = array_unique($colorIDs);
                               </div>
                           </div>
                           <div class="button-grp">
-                              <a class="button" style="background-color:var(--color-1)"><span>View Profile</span></a>
-                              <a class="button" style="background-color:var(--color-2)"><span>Change status</span></a>
+                              <a class="btn" style="background-color:var(--color-1)"><span>View Profile</span></a>
+                              <a class="btn" style="background-color:var(--color-2)"><span>Change status</span></a>
                           </div>
                       </div>
                       
