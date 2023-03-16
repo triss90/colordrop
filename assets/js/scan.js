@@ -1,6 +1,5 @@
 // Scan Colors
-function colorScan() {
-  const imgFile = document.querySelector(".dropzone .dz-preview .dz-image img");
+function colorScan(imgFile) {
   const image = imgFile;
   image.onload = () => { 
     var vibrant = new Vibrant(image);
@@ -16,7 +15,6 @@ function colorScan() {
       }	
     }
   };
-  image.src = imgFile;
 };
 
 // Dropzone
@@ -29,16 +27,14 @@ var myDropzone = new Dropzone("#dropzone", {
     dictDefaultMessage: "Drop .png or .jpg here",
 });
 
-myDropzone.on("success", function(file) {
+myDropzone.on("thumbnail", function(file) {
+  // console.log(file);
   const previewElement = document.querySelector('#previewElement');
   const image = new Image();
   image.src = file.dataURL;
   previewElement.innerHTML = "";
   previewElement.appendChild(image);
-});
-
-myDropzone.on("complete", function(file) {
-  colorScan();
+  colorScan(image);
   myDropzone.removeFile(file);
 });
 
