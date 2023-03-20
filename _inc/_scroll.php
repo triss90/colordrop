@@ -9,7 +9,7 @@ $offset = $page_number * $palettes_per_page;
 
 
 <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM palettes ORDER BY created DESC LIMIT '.$palettes_per_page.' OFFSET '.$offset.'', array()) as $palette) { ?>
-    <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 medium-3 large-2">
+    <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 medium-3 large-2 wide-1">
          <div class="palette">
              <div class="colors">
                  <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>

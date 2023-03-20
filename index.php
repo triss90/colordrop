@@ -31,7 +31,7 @@ $randomID = (rand(1,$totalIDs));
 <main id="main">
     <div class="row">
         <!-- BuySellAds START -->
-        <div class="tiny-12 small-8 medium-6 large-4">
+        <div class="tiny-12 small-8 medium-6 large-4 wide-2">
             <div id="wall-js">
                 <!-- <div class="cloudservers">
                     <small>Sponsored by cloudservers.dk</small>
@@ -43,7 +43,7 @@ $randomID = (rand(1,$totalIDs));
         </div>
         <!-- BuySellAds END -->
     <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM palettes ORDER BY created DESC LIMIT 64', array()) as $palette) { ?>
-        <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 medium-3 large-2">
+        <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 medium-3 large-2 wide-1">
             <div class="palette">
                 <div class="colors">
                     <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
