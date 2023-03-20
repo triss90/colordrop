@@ -558,6 +558,10 @@ a.button:hover,
   height: calc(100% - var(--gutter));
 }
 
+#wall-js #_custom_ {
+  min-height: 100%;
+}
+
 #wall-js .wall img {
   max-width: 100%;
 }
