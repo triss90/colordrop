@@ -13,11 +13,10 @@ include("../_inc/header.php");
 		<div class="row center-tiny">
 			<div class="tiny-12 small-10 medium-8 large-6">
 				<h1>About</h1>
-				<p class="large">ColorDrop is an online tool that allows users to create, save, and share color palettes. The website offers a simple, user-friendly interface that allows you to easily create new color palettes, or browse through existing ones.</p>
-				<p class="large">One of the unique features of ColorDrop is its ability to extract color palettes from images. Users can upload an image to the website, and ColorDrop will analyze the colors in the image to generate a new color palette based on those colors. This can be a great way to generate color schemes that are visually harmonious and match the overall feel of a particular image.</p>
-				<p class="large">Users can also save their color palettes by "liking" them, and share them with others through a unique URL. This makes it easy to collaborate on color schemes with team members or clients.</p>
-				<p class="large">In addition to creating and sharing color palettes, ColorDrop also offers a variety of other tools and resources related to color, such as color theory guides and tutorials on how to use color in design.</p>
-				<p class="large">Overall, ColorDrop is a useful tool for anyone who works with color, whether you're a designer, artist, or just someone who wants to experiment with different color combinations.</p>
+				<p class="large">At ColorDrop, we believe that color is an essential part of any design or branding project, and that's why we've created a tool that makes it easy to explore and experiment with different hues and shades. Our user-friendly interface is designed to be intuitive and straightforward, so you can quickly create color palettes that are customized to your needs.</p>
+				<p class="large">Whether you're a professional designer or a casual user, ColorDrop has everything you need to get started. With our extensive library of colors and the ability to customize hues and shades, you can create a virtually limitless range of palettes that are tailored to your specific needs. Plus, our tool is optimized for both desktop and mobile devices, so you can create on the go or from the comfort of your own workspace.</p>
+				<p class="large">One of the things that sets ColorDrop apart is our focus on user experience. We understand that our users have different needs and preferences, and that's why we've created a tool that's versatile and customizable. With the ability to save and organize your color palettes, download them in a variety of formats, and share them with others, you'll always have the resources you need to take your design projects to the next level.</p>
+				<p class="large">Whether you're looking to create a new brand identity, redesign your website, or simply add a splash of color to your social media posts, ColorDrop is the perfect tool to help you unleash your creativity and bring your ideas to life. So why wait? Start exploring the wonderful world of color with ColorDrop!</p>
 			</div>
 		</div>
 	</div>
