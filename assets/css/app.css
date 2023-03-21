@@ -802,6 +802,9 @@ body#flat main {
   width: 5%;
   transition: all 150ms ease-in-out;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .colors.colors-flat .flat:hover {
   transform: scale(1.2);

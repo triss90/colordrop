@@ -58,6 +58,13 @@ function hexToRgb(hex) {
     return r + "," + g + "," + b;
 }
 
+// RGB to HEX
+const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+  const hex = x.toString(16)
+  return hex.length === 1 ? '0' + hex : hex
+}).join('');
+
+
 // Scroll to top
 function scrollToTop() {
   window.scrollTo({
