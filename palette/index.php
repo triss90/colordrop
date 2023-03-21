@@ -5,6 +5,18 @@ include("../_inc/_functions.php");
 include("../_inc/header.php");
 
 $paletteID = $_GET['id'];
+if (!empty($_GET['c1'])) {
+  $color1 = $_GET['c1'];
+}
+if (!empty($_GET['c2'])) {
+  $color2 = $_GET['c2'];
+}
+if (!empty($_GET['c3'])) {
+  $color3 = $_GET['c3'];
+}
+if (!empty($_GET['c4'])) {
+  $color4 = $_GET['c4'];
+}
 $categories = $cd->DatabasePrepareQueryReturnFirstField("SELECT categories FROM palettes WHERE id = ?", array($paletteID));
 $categories_array = explode(",", $categories[0]);
 $colorNameArr = array();
@@ -17,6 +29,7 @@ foreach ($cd->DatabasePrepareQuery("SELECT palette FROM colors WHERE name = ? OR
 }
 $colorIDs = array_unique($colorIDs);
 ?>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
 
 <body id="palettes">
 
@@ -26,7 +39,7 @@ $colorIDs = array_unique($colorIDs);
     <section class="container">
         <div class="row between-medium">
             <!-- Colors -->
-            <div class="tiny-12 medium-7">
+            <div class="tiny-12 medium-7 wide-8">
                 <div class="row">
                     <div class="tiny-7 medium-8">
                         <h2 style="margin-top:0;">Color presets</h2>
@@ -132,7 +145,7 @@ $colorIDs = array_unique($colorIDs);
             </div>
             
             <!-- Live UI Demo Kit -->
-            <div class="tiny-12 medium-4 center-tiny">
+            <div class="tiny-12 medium-5 large-4 wide-3 center-tiny">
                 <style>
                 :root {
                     --color-1: <?php echo $hexColors[0]; ?>;
@@ -172,7 +185,6 @@ $colorIDs = array_unique($colorIDs);
                 <div class="iphone-x">
                   <i>Speaker</i>
                   <b>Camera</b>
-                  
                   <div class="ui-exmaple">
                     <div class="header" style="border-color:var(--color-1)">
                      
@@ -344,10 +356,29 @@ $colorIDs = array_unique($colorIDs);
                       </div>
                   </div>
                 </div>
+                
+                <div class="social">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//colordrop.io/palette/?id=<?php echo $paletteID; ?>" target="_blank" class="icon facebook">
+                        <div class="tooltip">Facebook</div>
+                        <span><i class="fab fa-facebook-f"></i></span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20color%20palette%20on%20https://colordrop.io/palette/?id=<?php echo $paletteID; ?>" target="_blank" class="icon twitter">
+                        <div class="tooltip">Twitter</div>
+                        <span><i class="fab fa-twitter"></i></span>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//colordrop.io/palette/?id=<?php echo $paletteID; ?>" target="_blank" class="icon linkedin">
+                        <div class="tooltip">LinkedIn</div>
+                        <span><i class="fab fa-linkedin"></i></span>
+                    </a>
+                    <a href="http://pinterest.com/pin/create/button/?url=https%3A//colordrop.io/palette/?id=<?php echo $paletteID; ?>&media=&description=Check%20awesome%20color%20palette%20on%20Colodrop.io" target="_blank" class="icon pinterest">
+                        <div class="tooltip">Pinterest</div>
+                        <span><i class="fab fa-pinterest"></i></span>
+                    </a>
+                </div>
+                
             </div>
         </div>
     </section>
-    
     
     <section class="container">
         <!-- Similar Colors -->
@@ -376,7 +407,7 @@ $colorIDs = array_unique($colorIDs);
         <div class="row"> 
         <?php foreach ($palettes as $palette) { ?>
             <?php if ($palette['id'] != $paletteID) { ?>
-                <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4">
+                <div id="<?php echo $palette['id'];?>" class="tiny-6 small-4 wide-3">
                     <div class="palette">
                         <div class="colors">
                             <?php foreach ($cd->DatabasePrepareQuery('SELECT * FROM colors WHERE palette = ?', array($palette['id'])) as $color) { ?>
@@ -426,6 +457,42 @@ $colorIDs = array_unique($colorIDs);
 
 <?php include("../_inc/footer.php"); ?>
 <?php include("../_inc/scripts.php"); ?>
-<script src="/assets/js/jscolor.min.js"></script>
+<!-- <script src="/assets/js/jscolor.min.js"></script> -->
+<script src="/assets/js/jscolor.2.5.1.min.js"></script>
 <script src="/assets/js/palette.min.js"></script>
+<script src="/assets/js/social.js"></script>
 
+<script>
+window.addEventListener("DOMContentLoaded", (event) => {
+<?php
+if (isset($color1)) {
+    echo '
+      const picker1 = document.querySelector("#colorpick1");
+      picker1.jscolor.fromString("'.$color1.'");
+      update(picker1.jscolor,1);
+    ';
+}
+if (isset($color2)) {
+    echo '
+      const picker2 = document.querySelector("#colorpick2");
+      picker2.jscolor.fromString("'.$color2.'");
+      update(picker2.jscolor,2);
+    ';
+}
+if (isset($color3)) {
+    echo '
+      const picker3 = document.querySelector("#colorpick3");
+      picker3.jscolor.fromString("'.$color3.'");
+      update(picker3.jscolor,3);
+    ';
+}
+if (isset($color4)) {
+    echo '
+    const picker4 = document.querySelector("#colorpick4");
+      picker4.jscolor.fromString("'.$color4.'");
+      update(picker4.jscolor,4);
+    ';
+}
+?>
+ });
+</script>

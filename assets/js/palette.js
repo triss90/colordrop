@@ -1,6 +1,6 @@
 // JSColor
 jscolor.presets.default = {
-   position: 'bottom', 
+   position: 'top', 
    width: 181, 
    height: 121,
    palette: '#fff #fcd #fdc #ffc #dfc #dff #cdf #dcf #ccc', 
@@ -17,7 +17,7 @@ jscolor.presets.default = {
    backgroundColor: '#f9f9f9', 
    shadowColor: 'rgba(0,0,0,0.2)',
    closeButton: true, 
-   closeText: 'OK', 
+   closeText: 'OK',
    buttonColor: '#333',
 }
 
@@ -51,53 +51,68 @@ function hexToHSL(hex) {
 
 // RGB to HSL
 function RGBToHSL(r,g,b) {
-	// Make r, g, and b fractions of 1
-	r /= 255;
-	g /= 255;
-	b /= 255;
-	
-	// Find greatest and smallest channel values
-	let cmin = Math.min(r,g,b),
+  // Make r, g, and b fractions of 1
+  r /= 255;
+  g /= 255;
+  b /= 255;
+
+  // Find greatest and smallest channel values
+  let cmin = Math.min(r,g,b),
 	  cmax = Math.max(r,g,b),
 	  delta = cmax - cmin,
 	  h = 0,
 	  s = 0,
 	  l = 0;
 	  
-	// Calculate hue
+  	// Calculate hue
 	// No difference
-	if (delta == 0) {
-		h = 0;
-	} else if (cmax == r) {
-		// Red is max
-		h = ((g - b) / delta) % 6;
-	} else if (cmax == g) {
-		// Green is max
-		h = (b - r) / delta + 2;
-	} else {
-		// Blue is max
-		h = (r - g) / delta + 4;
-		h = Math.round(h * 60);	
-	}
-	 
+	if (delta == 0)
+	  h = 0;
+	// Red is max
+	else if (cmax == r)
+	  h = ((g - b) / delta) % 6;
+	// Green is max
+	else if (cmax == g)
+	  h = (b - r) / delta + 2;
+	// Blue is max
+	else
+	  h = (r - g) / delta + 4;
+  
+	h = Math.round(h * 60);
+	  
 	// Make negative hues positive behind 360°
-	if (h < 0) {
+	if (h < 0)
 		h += 360;
-		// Calculate lightness
-		l = (cmax + cmin) / 2;
-		// Calculate saturation
-		s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-		// Multiply l and s by 100
-		s = +(s * 100).toFixed(1);
-		l = +(l * 100).toFixed(1);
-		return "hsl(" + h + "," + s + "%," + l + "%)";
-	}
+	
+	// Calculate lightness
+  	l = (cmax + cmin) / 2;
+	
+  	// Calculate saturation
+  	s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+		
+  	// Multiply l and s by 100
+  	s = +(s * 100).toFixed(1);
+  	l = +(l * 100).toFixed(1);
+	
+  	return "hsl(" + h + "," + s + "%," + l + "%)";
 }
+
 
 // Update colors
 function update(picker, id) {
-	var r = document.querySelector(':root');
-	document.documentElement.style.setProperty('--color-'+id, picker.toHEXString());
+	const r = document.querySelector(':root');
+	let hexString =  picker.toHEXString();
+	hexString = hexString.replace("#","");
+	
+	// Update URL
+	let url = new URL(window.location.href);
+	let search_params = url.searchParams;
+	search_params.set('c'+id, hexString);
+	url.search = search_params.toString();
+	let new_url = url.toString();
+	history.pushState(null, "", new_url);
+
+	document.documentElement.style.setProperty('--color-'+id, picker.toHEXString())
 	// Get inputs
 	let hexInput = document.getElementById('hex-input-'+id);
 	let rgbInput = document.getElementById('rgb-input-'+id);
@@ -110,6 +125,10 @@ function update(picker, id) {
 	formattedRGB = formattedRGB.split(',');
 	rgbInput.value = picker.toRGBAString();
 	// HSL
+	// console.log(formattedRGB[0],formattedRGB[1],formattedRGB[2]);
+	// console.log(RGBToHSL(formattedRGB[0],formattedRGB[1],formattedRGB[2]));
+	console.log(RGBToHSL(89,194,201));
+	
 	hslInput.value = RGBToHSL(formattedRGB[0],formattedRGB[1],formattedRGB[2]);
 }
    
