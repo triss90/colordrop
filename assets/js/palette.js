@@ -124,11 +124,7 @@ function update(picker, id) {
 	formattedRGB = formattedRGB.replace(",1)","");
 	formattedRGB = formattedRGB.split(',');
 	rgbInput.value = picker.toRGBAString();
-	// HSL
-	// console.log(formattedRGB[0],formattedRGB[1],formattedRGB[2]);
-	// console.log(RGBToHSL(formattedRGB[0],formattedRGB[1],formattedRGB[2]));
-	console.log(RGBToHSL(89,194,201));
-	
+	// HSL	
 	hslInput.value = RGBToHSL(formattedRGB[0],formattedRGB[1],formattedRGB[2]);
 }
    
