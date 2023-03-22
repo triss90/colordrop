@@ -645,7 +645,7 @@ a.button:hover,
   color: white;
 }
 .cloudservers small {
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 .cloudservers .cloudservers-footer {
   display: flex;

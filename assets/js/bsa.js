@@ -30,7 +30,7 @@ function BSANativeCallback(a) {
 	adContainer.innerHTML = `
 	<div class="cloudservers">
 		<b>Sponsored by cloudservers.dk</b><br>
-		<small>Cloudservers.dk. Designed for Performance. Built for everything!</small><br>
+		<small>High performing cloudservers with Linux & Microsoft Windows!</small>
 		<div class="cloudservers-footer">
 			<img src="/assets/img/cloudservers.png" alt="Cloudservers Logo">
 			<a href="https://cloudservers.dk?referral=colordrop" target="_blank" class="button">Try for free</a>
