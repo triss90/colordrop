@@ -100,8 +100,8 @@ $randomID = (rand(1,$totalIDs));
     </circle>
 </svg>
 
-
 <?php include("_inc/footer.php"); ?>
 <?php include("_inc/scripts.php"); ?>
-<script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
 <script src="/assets/js/front.min.js"></script>
+<script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
+<script src="/assets/js/bsa.min.js"></script>

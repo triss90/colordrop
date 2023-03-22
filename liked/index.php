@@ -75,31 +75,9 @@ $randomID = (rand(1,$totalIDs));
 <?php include("../_inc/footer.php"); ?>
 <?php include("../_inc/scripts.php"); ?>
 <script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
+<script src="../bsa.min.js"></script>
 
 <script>
-  /**************/
-  /* BuySellAds */
-  /**************/
-  (function() {
-    if (typeof _bsa !== 'undefined' && _bsa) {
-    _bsa.init('custom', 'CKYI42JJ', 'placement:wallcard-demo', {
-      target: '#wall-js',
-      template:
-      `
-      <a href="##statlink##" class="wall" style="background-color: ##backgroundColor##; color: ##textColor##" rel="sponsored noopener" target="_blank" title="##company## — ##tagline##">
-        <div class="wall__sponsor">Sponsored by ##company##</div>
-        <div class="wall__tagline">##companyTagline##</div>
-        <div class="wall__description">##description##</div>
-        <div class="wall__footer">
-        <div class="wall__image"><img src="##logo##"></div>
-        <div class="wall__cta" style="background-color: ##ctaBackgroundColor##; color: ##ctaTextColor##;">##callToAction##</div>
-        </div>
-      </a>
-      `
-    });
-    }
-  })();
-  
   /****************/
   /* Filter Likes */
   /****************/
