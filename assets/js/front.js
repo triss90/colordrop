@@ -7,7 +7,7 @@ $(window).scroll(function() {
 	if (processing) {
 		return false;
 	}
-	if($(window).scrollTop()+10 >= $(document).height() - $(window).height()) {
+	if($(window).scrollTop()+15 >= $(document).height() - $(window).height()) {
 		processing = true;
 		$.ajax(
 			'/_inc/_scroll.php?p='+i,
@@ -18,8 +18,9 @@ $(window).scroll(function() {
 						i++;
 						processing = false;
 						checkLikes();
+						console.log('Data added');
 					} else {
-						document.querySelector('#loader').classList.add('hide');
+						document.querySelector('#color-loader').classList.add('hide');
 					}
 				},
 				error: function() {
