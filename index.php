@@ -3,6 +3,7 @@ include("_inc/_app.php");
 $cd = new ColorDrop;
 include("_inc/_functions.php");
 include("_inc/header.php");
+include("_inc/loader.php");
 
 $totalQuery= $cd->DatabasePrepareQuery('SELECT COUNT(*) as count FROM palettes', array());
 foreach ($totalQuery as $total) {
