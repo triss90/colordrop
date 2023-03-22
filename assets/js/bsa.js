@@ -20,18 +20,22 @@
 	}
 })();
 
-
+/****************************/
+/* Fallback CloudServers Ad */
+/****************************/
 function BSANativeCallback(a) { 
   if(a.ads.length == 0) {
 	console.log("No Ads")
 	const adContainer = document.querySelector('#wall-js');
 	adContainer.innerHTML = `
 	<div class="cloudservers">
-		<small>Sponsored by cloudservers.dk</small>
-		<img src="/assets/img/Cloudservers-lightblue.png" alt="Cloudservers Logo">
-		<small>Cloudservers.dk. Designed for Performance. Built for everything!</small>
-		<a href="https://cloudservers.dk?referral=colordrop" target="_blank" class="button">Try for free</a>
+		<b>Sponsored by cloudservers.dk</b><br>
+		<small>Cloudservers.dk. Designed for Performance. Built for everything!</small><br>
+		<div class="cloudservers-footer">
+			<img src="/assets/img/cloudservers.png" alt="Cloudservers Logo">
+			<a href="https://cloudservers.dk?referral=colordrop" target="_blank" class="button">Try for free</a>
+		</div>
 	</div>
-	`
+	`;
   }
 }

@@ -24,6 +24,7 @@ $randomID = (rand(1,$totalIDs));
         </form>
         <br><br>
         <a class="button" href="/palette/?id=<?php echo $randomID; ?>">I'm Feeling Lucky</a>
+        <wbr>
         <a class="button" href="/liked/>">Show Favourites</a> 
     </div>
 </header>
@@ -32,12 +33,6 @@ $randomID = (rand(1,$totalIDs));
     <div class="row">
         <!-- BuySellAds START -->
         <div class="tiny-12 small-8 medium-6 large-4 wide-2">
-            <!-- <div class="cloudservers">
-                <small>Sponsored by cloudservers.dk</small>
-                <img src="/assets/img/Cloudservers-lightblue.png" alt="Cloudservers Logo">
-                <small>Cloudservers.dk. Designed for Performance. Built for everything!</small>
-                <a href="https://cloudservers.dk?referral=colordrop" target="_blank" class="button">Try for free</a>
-            </div> -->
             <div id="wall-js"></div>
         </div>
         <!-- BuySellAds END -->

@@ -53,7 +53,8 @@
 }
 
 .cloudservers {
-  background: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
+  // background: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
+  background: #19191a;
   border-radius: 5px;
   height: 100%;
   width: 100%;
@@ -67,19 +68,37 @@
   small {
     margin-bottom: 0.25rem;
   }
-  img {
-    margin: 0 auto;
-    display: block;
-    width: 15%;
-  }
-  .button {
-    border: 1px solid white;
-    padding: 0.3rem 0.6rem;
-    color: white;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
+  .cloudservers-footer {
+    display: flex;
+    justify-content: space-between;
+    img {
+      margin: 0 auto;
+      display: block;
+      width: 60%;
+      height: auto;
+    }
+    b {
+     text-transform: uppercase; 
+    }
+    .button {
+      width: 30%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 0.3rem 0.6rem;
+      color: white;
+      background: #2989EF;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 0;
+      &:hover {
+        top: 0;
+      }
+    }
   }
 }
 
