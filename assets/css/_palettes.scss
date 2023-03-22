@@ -83,6 +83,29 @@
   }
 }
 
+#newLikeContianer {
+  #newLikeLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 210px;
+    height: calc(100% - 1rem);
+    width: 100%;
+    border-radius: 5px;
+    border: 2px dashed var(--border-color);
+    color: var(--color-1);
+    &:hover {
+      text-decoration: none;
+      border: 2px dashed var(--highlight-1);
+      color: var(--highlight-1);
+    }
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
 .likes, .view {
   padding: 0 5px 4px 5px;
   border: 1px solid var(--border-color);
