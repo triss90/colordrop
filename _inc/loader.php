@@ -55,6 +55,3 @@
 		pageLoader.classList.add('hidden');
 	}, "1350");
 </script>
-
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat officia ab deleniti corporis, perferendis ut amet molestias sit voluptate eius possimus pariatur fugit explicabo, nostrum temporibus totam facere aliquam.
