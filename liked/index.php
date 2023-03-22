@@ -25,14 +25,7 @@ $randomID = (rand(1,$totalIDs));
     <div class="row" id="liked-palettes">
         <!-- BuySellAds START -->
         <div class="tiny-12 small-8 medium-6 large-4 wide-2">
-            <div id="wall-js">
-                <!-- <div class="cloudservers">
-                    <small>Sponsored by cloudservers.dk</small>
-                    <img src="/assets/img/Cloudservers-lightblue.png" alt="Cloudservers Logo">
-                    <small>Cloudservers.dk. Designed for Performance. Built for everything!</small>
-                    <a href="https://cloudservers.dk?referral=colordrop" target="_blank" class="button">Try for free</a>
-                </div> -->
-            </div>
+            <div id="wall-js"></div>
         </div>
             
         <!-- BuySellAds END -->
@@ -75,7 +68,7 @@ $randomID = (rand(1,$totalIDs));
 <?php include("../_inc/footer.php"); ?>
 <?php include("../_inc/scripts.php"); ?>
 <script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
-<script src="../bsa.min.js"></script>
+<script src="../assets/js/bsa.min.js"></script>
 
 <script>
   /****************/
@@ -110,7 +103,5 @@ $randomID = (rand(1,$totalIDs));
     newLikeLink.appendChild(newLikeText);
     newLikeElement.appendChild(newLikeLink);
     likedContainer.appendChild(newLikeElement);
-    
-    console.log(newLikeElement);
   }
 </script>
