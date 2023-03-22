@@ -25,7 +25,6 @@
 /****************************/
 function BSANativeCallback(a) { 
   if(a.ads.length == 0) {
-	console.log("No Ads")
 	const adContainer = document.querySelector('#wall-js');
 	adContainer.innerHTML = `
 	<div class="cloudservers">
