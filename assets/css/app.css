@@ -408,7 +408,8 @@ hr {
   justify-content: center;
   align-items: center;
   min-height: 140px;
-  height: calc(100% - 2rem);
+  height: calc(100% - 1rem);
+  padding: 0 1rem;
   width: 100%;
   border-radius: 5px;
   border: 2px dashed var(--border-color);
