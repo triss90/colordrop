@@ -3,6 +3,7 @@ include("../_inc/_app.php");
 $cd = new ColorDrop;
 include("../_inc/_functions.php");
 include("../_inc/header.php");
+include("../_inc/loader.php");
 ?>
 
 <body id="gradients">
