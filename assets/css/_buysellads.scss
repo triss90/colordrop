@@ -11,6 +11,7 @@
 #wall-js #_custom_ {
   min-height: 100%;
   position: relative;
+  border-radius: 5px;
 }
 #wall-js .wall img {
 	max-width: 100%;
@@ -22,6 +23,7 @@
   flex-direction: column !important;
   justify-content: space-around !important;
   position: relative !important;
+  border-radius: 5px;
 }
 #wall-js .wall .wall__cta {
 	padding: 0.5rem 0;
