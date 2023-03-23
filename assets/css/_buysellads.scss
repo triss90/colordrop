@@ -10,15 +10,18 @@
 }
 #wall-js #_custom_ {
   min-height: 100%;
+  position: relative;
 }
 #wall-js .wall img {
 	max-width: 100%;
 }
 #wall-js a.wall {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around !important;
+  position: relative !important;
 }
 #wall-js .wall .wall__cta {
 	padding: 0.5rem 0;
