@@ -16,6 +16,9 @@
 }
 #wall-js a.wall {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 #wall-js .wall .wall__cta {
 	padding: 0.5rem 0;
@@ -87,7 +90,8 @@
       align-items: center;
       padding: 0.3rem 0.6rem;
       color: white;
-      background: #2989EF;
+      background-color: #2989EF;
+      background-image: linear-gradient(to bottom right, #2989EF, #13CDFF);
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: bold;
