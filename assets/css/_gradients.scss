@@ -17,14 +17,33 @@ body#gradients {
 		justify-content: space-between;
 		.code {
 			color: white;
+			position: relative;
 			svg {
+				transform: scale(1);
 				position: relative;
 				top: 4px;
 				filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.4));
+				transition: all 150ms ease;
+			}
+			&:after {
+				display: none;
+				content: attr(data-value);
+				text-shadow: (0px 0px 2px rgb(0 0 0 / 0.4));
+				width: 100px;
+				font-weight: bold;
+				font-size: 0.75rem;
+				position: absolute;
+				left: 2rem;
+				top: 0;
 			}
 			&:hover {
-				color: #1eafed;
-			}
+				svg {
+					transform: scale(1.25);
+				}
+				&:after {
+					display: block;
+				}
+			}	
 		}
 		.date {
 		  font-size: .85rem;
