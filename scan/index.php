@@ -13,7 +13,8 @@ include("../_inc/header.php");
 	<div class="container">
 		<div class="row">
 			<div class="tiny-12 center-tiny">
-				<h2>Upload Image</h2>
+				<h1 class="linear-wipe funky" style="font-size: 5rem;">Scan Image</h1>
+				<!-- <h3>Let our AI generate a palette based on your image</h3> -->
 				<p class="large">Drop an image below and let our AI generate a palette based on the dominant colors in the image.</p>
 				<form action="#" id="dropzone" class="dropzone" enctype="multipart/form-data"></form>
 			</div>
