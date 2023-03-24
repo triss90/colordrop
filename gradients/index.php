@@ -12,8 +12,8 @@ include("../_inc/loader.php");
 
 <header id="header" class="row center-tiny">
 	<div class="tiny">
-		<h1 class="linear-wipe funky" style="font-size: 5rem;">Websafe Gradients</h1>
-		<h3>Premium curated color palettes</h3>
+		<h1 class="linear-wipe funky" style="font-size: 5rem;">Gradients</h1>
+		<p class="large">Grab ready-to-use CSS from one of the gradients below</p>
 	</div>
 </header>
 
