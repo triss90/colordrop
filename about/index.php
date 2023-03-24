@@ -12,7 +12,7 @@ include("../_inc/header.php");
 	<div class="container">
 		<div class="row center-tiny">
 			<div class="tiny-12 small-10 medium-8 large-6">
-				<h1>About</h1>
+				<h1 class="linear-wipe funky" style="font-size: 5rem;">About</h1>
 				<p class="large">At ColorDrop, we believe that color is an essential part of any design or branding project, and that's why we've created a tool that makes it easy to explore and experiment with different hues and shades. Our user-friendly interface is designed to be intuitive and straightforward, so you can quickly create color palettes that are customized to your needs.</p>
 				<p class="large">Whether you're a professional designer or a casual user, ColorDrop has everything you need to get started. With our extensive library of colors and the ability to customize hues and shades, you can create a virtually limitless range of palettes that are tailored to your specific needs. Plus, our tool is optimized for both desktop and mobile devices, so you can create on the go or from the comfort of your own workspace.</p>
 				<p class="large">One of the things that sets ColorDrop apart is our focus on user experience. We understand that our users have different needs and preferences, and that's why we've created a tool that's versatile and customizable. With the ability to save and organize your color palettes, download them in a variety of formats, and share them with others, you'll always have the resources you need to take your design projects to the next level.</p>
