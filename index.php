@@ -19,7 +19,7 @@ $randomID = (rand(1,$totalIDs));
 <header id="header" class="row center-tiny">
     <div class="tiny">
         <h1 class="linear-wipe funky" style="font-size: 5rem;">Welcome to ColorDrop</h1>
-        <h3>Premium curated color palettes</h3>
+        <p class="large">Premium curated color palettes</p>
         <form action="/search" method="GET">
             <input type="text" name="s" class="search" placeholder="Search (e.g. red, midnight, wood, green, chill or rose)">
         </form>
