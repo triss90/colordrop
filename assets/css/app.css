@@ -75,7 +75,8 @@ code {
 }
 code span {
   background: inherit;
-  background-clip: text;
+  -webkit-background-clip: text;
+          background-clip: text;
   color: transparent;
   filter: invert(1) grayscale(1) contrast(9);
 }
@@ -306,11 +307,11 @@ hr {
 .totop {
   display: block;
   position: fixed;
-  bottom: 0;
+  bottom: 1rem;
   right: 1rem;
   background: rgba(0, 0, 0, 0.5);
-  padding: 1rem 1rem 0 1rem;
-  border-radius: 5px 5px 0 0;
+  padding: 1rem 1rem 0.25rem 1rem;
+  border-radius: 5px;
   z-index: 1000;
   font-size: 2rem;
   line-height: 1;
@@ -332,7 +333,7 @@ hr {
   opacity: 1;
 }
 .totop:hover {
-  background: black;
+  background: rgb(0, 0, 0);
 }
 
 .palette {
@@ -547,14 +548,13 @@ a.button,
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-size: 1.125rem;
-  /* 18px */
+  font-size: 1.125rem; /* 18px */
   font-weight: 600;
-  line-height: 1.75rem;
-  /* 28px */
+  line-height: 1.75rem; /* 28px */
   padding: 1rem 1.25rem;
   text-align: center;
-  user-select: none;
+  -moz-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   margin: 0 0.5rem 0.5rem 0;
@@ -1485,6 +1485,4 @@ input::-moz-focus-outer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=app.css.map */

@@ -50,11 +50,11 @@ hr {
 .totop {
   display: block;
   position: fixed;
-  bottom: 0;
+  bottom: 1rem;
   right: 1rem;
   background: rgba(0,0,0,0.5);
-  padding: 1rem 1rem 0 1rem;
-  border-radius: 5px 5px 0 0;
+  padding: 1rem 1rem 0.25rem 1rem;
+  border-radius: 5px;
   z-index: 1000;
   font-size: 2rem;
   line-height: 1;
