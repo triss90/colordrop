@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 
-html, body {
+html,
+body {
   color: var(--text-color);
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 .funky {
@@ -11,21 +12,23 @@ html, body {
   font-weight: bold;
 }
 
-pre, code {
-  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
 code {
   border-radius: 0.3rem;
   padding: 0.15rem 0.3rem;
-  line-height: 1.8rem; 
-  font-size: 0.8rem; 
+  line-height: 1.8rem;
+  font-size: 0.8rem;
   span {
     background: inherit;
     background-clip: text;
     color: transparent;
     filter: invert(1) grayscale(1) contrast(9);
-  } 
+  }
 }
 
 a {
@@ -44,11 +47,12 @@ p {
   font-size: 1rem;
   &.large {
     font-size: 1.25rem;
+    line-height: 1.75;
   }
 }
 
 .tag {
-  background:  var(--border-color);
+  background: var(--border-color);
   color: var(--text-color-2) !important;
   padding: 0.2rem 0.55rem;
   border-radius: 0.3rem;
@@ -64,7 +68,7 @@ p {
   }
   &.static {
     &:hover {
-      background:  var(--border-color);
+      background: var(--border-color);
     }
   }
 }
@@ -73,7 +77,15 @@ h1.linear-wipe {
   font-size: 1.5rem;
   display: inline;
   text-align: center;
-  background-image: linear-gradient(to right, #F782A9 0%, #B48BD9 10%, #4ED9AB 40%, #FFD26B 60%, #F782A9 90%, #F782A9 100%);
+  background-image: linear-gradient(
+    to right,
+    #f782a9 0%,
+    #b48bd9 10%,
+    #4ed9ab 40%,
+    #ffd26b 60%,
+    #f782a9 90%,
+    #f782a9 100%
+  );
   background-size: 200% auto;
   color: #000;
   background-clip: text;
@@ -91,4 +103,3 @@ h1.linear-wipe {
     }
   }
 }
-

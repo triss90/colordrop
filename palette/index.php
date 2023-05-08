@@ -291,8 +291,8 @@ $colorIDs = array_unique($colorIDs);
                               <h4 class="subheader" style="color:var(--color-3);">Last Name:</h4>
                               <input type="text" class="input" value="M. Pitts">
                               
-                              <h4 class="subheader" style="color:var(--color-3);">Confirm Password:</h4>
-                              <input type="password" class="input" value="" placeholder="********">
+                              <!-- <h4 class="subheader" style="color:var(--color-3);">Confirm Password:</h4>
+                              <input type="password" class="input" value="" placeholder="********"> -->
                           </div>
                       </div>
                       <br>

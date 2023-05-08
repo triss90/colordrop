@@ -53,7 +53,8 @@ body {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   color: var(--text-color);
   font-family: "Manrope", sans-serif;
 }
@@ -63,7 +64,8 @@ html, body {
   font-weight: bold;
 }
 
-pre, code {
+pre,
+code {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
@@ -99,6 +101,7 @@ p {
 }
 p.large {
   font-size: 1.25rem;
+  line-height: 1.75;
 }
 
 .tag {
@@ -124,7 +127,7 @@ h1.linear-wipe {
   font-size: 1.5rem;
   display: inline;
   text-align: center;
-  background-image: linear-gradient(to right, #F782A9 0%, #B48BD9 10%, #4ED9AB 40%, #FFD26B 60%, #F782A9 90%, #F782A9 100%);
+  background-image: linear-gradient(to right, #f782a9 0%, #b48bd9 10%, #4ed9ab 40%, #ffd26b 60%, #f782a9 90%, #f782a9 100%);
   background-size: 200% auto;
   color: #000;
   background-clip: text;
@@ -1038,9 +1041,11 @@ footer p {
   background-color: var(--background-color);
   border-radius: 40px;
   box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111;
+  overflow: hidden;
 }
 
-.iphone-x:before, .iphone-x:after {
+.iphone-x:before,
+.iphone-x:after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1131,14 +1136,13 @@ footer p {
 .ui-exmaple .header .header-wrap {
   display: flex;
   flex-wrap: nowrap;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   gap: 1rem;
 }
 .ui-exmaple .header .header-wrap .avatar {
-  width: 100px;
+  width: 200px;
   height: 75px;
   position: relative;
-  top: 0.5rem;
   border: 2px solid transparent;
 }
 .ui-exmaple .header .header-wrap .tag {
@@ -1146,6 +1150,9 @@ footer p {
 }
 .ui-exmaple .header .header-wrap .tag h3 {
   margin: 0;
+}
+.ui-exmaple .header .header-wrap .tag p {
+  margin-top: 0;
 }
 .ui-exmaple .header .button-grp {
   display: flex;

@@ -17,7 +17,7 @@
 .browser-mockup:before {
   display: block;
   position: absolute;
-  content: '';
+  content: "";
   top: -1.25em;
   left: 1em;
   width: 0.5em;
@@ -26,11 +26,11 @@
   background-color: #f44;
   box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
 }
-	
+
 .browser-mockup.with-tab:after {
   display: block;
   position: absolute;
-  content: '';
+  content: "";
   top: -2em;
   left: 5.5em;
   width: 20%;
@@ -43,7 +43,7 @@
 .browser-mockup.with-url:after {
   display: block;
   position: absolute;
-  content: '';
+  content: "";
   top: -1.6em;
   left: 5.5em;
   width: calc(100% - 6em);
@@ -55,8 +55,6 @@
 .browser-mockup > * {
   display: block;
 }
-
-
 
 // ##########################
 // ##########################
@@ -70,11 +68,32 @@
   left: 1rem;
   width: calc(100% - 2rem);
   height: 750px;
-  background-color:  var(--background-color);
+  background-color: var(--background-color);
   border-radius: 40px;
-  box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111;
+  box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919,
+    0px 0px 0px 20px #111;
+  overflow: hidden;
+  // &::-webkit-scrollbar {
+  //   width: 10px;
+  // }
+
+  // /* Track */
+  // &::-webkit-scrollbar-track {
+  //   background: #f1f1f1;
+  // }
+
+  // /* Handle */
+  // &::-webkit-scrollbar-thumb {
+  //   background: #888;
+  // }
+
+  // /* Handle on hover */
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background: #555;
+  // }
 }
-.iphone-x:before, .iphone-x:after {
+.iphone-x:before,
+.iphone-x:after {
   content: "";
   position: absolute;
   left: 50%;
@@ -146,10 +165,6 @@
   padding-top: 60px;
 }
 
-
-
-
-
 // ##########################
 // ##########################
 // UI
@@ -158,6 +173,7 @@
 .ui-exmaple {
   padding: 4rem 1rem 1rem 1rem;
   font-size: 0.75rem;
+
   .header {
     background: var(--border-color);
     border-radius: 0.3rem;
@@ -165,24 +181,24 @@
     .header-wrap {
       display: flex;
       flex-wrap: nowrap;
-      padding: 1rem;
+      padding: 1rem 1rem 0 1rem;
       gap: 1rem;
       .avatar {
-        width: 100px;
+        width: 200px;
         height: 75px;
         //border-radius: 50%;
         position: relative;
-        top: 0.5rem;
+        //top: 0.5rem;
         border: 2px solid transparent;
       }
       .tag {
         text-align: left;
         h3 {
           margin: 0;
-          
         }
         p {
-          
+          margin-top: 0;
+          // margin-bottom: 0;
         }
       }
     }
@@ -206,7 +222,7 @@
         top: 0;
         &:hover {
           top: -3px;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
           opacity: 0.8;
         }
         span {
@@ -218,7 +234,7 @@
           filter: invert(1) grayscale(1) contrast(9);
         }
       }
-    }	
+    }
   }
   .info-wrap {
     display: flex;
@@ -275,8 +291,8 @@
             height: 26px;
             border-radius: 100px;
             background: darken(#ddd, 12%);
-            box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
-            content: '';
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+            content: "";
             transition: all 300ms ease;
           }
           &:active:after {
@@ -296,7 +312,7 @@
             background: lighten(#ddd, 30%);
             pointer-events: none;
             &:after {
-              background: lighten(#ddd, 20%);;
+              background: lighten(#ddd, 20%);
             }
           }
         }
@@ -324,7 +340,7 @@
       top: 0;
       &:hover {
         top: -3px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
         opacity: 0.8;
       }
       svg {
