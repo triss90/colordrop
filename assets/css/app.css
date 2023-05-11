@@ -1317,6 +1317,8 @@ footer p {
 }
 
 .range-slider__range {
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   width: calc(100% - 73px);
   height: 10px;

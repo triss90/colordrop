@@ -370,6 +370,7 @@
   margin: 0 1rem;
 }
 .range-slider__range {
+  appearance: none;
   -webkit-appearance: none;
   width: calc(100% - (73px));
   height: 10px;
