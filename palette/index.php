@@ -74,6 +74,7 @@ $colorIDs = array_unique($colorIDs);
                     <div class="tiny-12">
                         <hr>
                     </div>
+                    
                     <?php
                     $hexColors = array();
                     $i = 1;
@@ -375,7 +376,11 @@ $colorIDs = array_unique($colorIDs);
                         <span><i class="fab fa-pinterest"></i></span>
                     </a>
                 </div>
-                
+            </div>
+
+            <div class="tiny-12">
+                <h2>Description</h2>
+                <p style="line-height:1.5"><?php echo $cd->DatabasePrepareQueryReturnFirstField("SELECT description FROM palettes WHERE id = ?", array($paletteID))[0];?></p><br>
             </div>
         </div>
     </section>
