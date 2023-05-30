@@ -2,7 +2,6 @@
 include("../_inc/_app.php");
 $cd = new ColorDrop;
 include("../_inc/_functions.php");
-include("../_inc/header.php");
 
 $paletteID = $_GET['id'];
 if (!empty($_GET['c1'])) {
@@ -21,6 +20,8 @@ $categories = $cd->DatabasePrepareQueryReturnFirstField("SELECT categories FROM 
 $categories_array = explode(",", $categories[0]);
 $colorNameArr = array();
 $colorIDs = array();
+$name = $cd->DatabasePrepareQueryReturnFirstField("SELECT palette_name FROM palettes WHERE id = ?", array($paletteID))[0];
+$desc = $cd->DatabasePrepareQueryReturnFirstField("SELECT description FROM palettes WHERE id = ?", array($paletteID))[0];
 foreach ($cd->DatabasePrepareQuery("SELECT * FROM colors WHERE palette = ?", array($paletteID)) as $colorName) {
     array_push($colorNameArr, $colorName['name']);
 }
@@ -28,6 +29,11 @@ foreach ($cd->DatabasePrepareQuery("SELECT palette FROM colors WHERE name = ? OR
     array_push($colorIDs, $colorID['palette']);
 }
 $colorIDs = array_unique($colorIDs);
+
+$title = "ColorDrop | ".$name;
+$description = $desc;
+$keywords = "";
+include("../_inc/header.php");
 ?>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
 
@@ -39,13 +45,27 @@ $colorIDs = array_unique($colorIDs);
     <section class="container">
         <div class="row between-medium">
             <!-- Colors -->
+            <div class="tiny-12">
+                <h1 class="linear-wipe funky" style="font-size:3rem; margin:0 0 3rem 0; display:block; text-align:left;">
+                    <?php echo $name?>
+                </h1>
+            </div>
             <div class="tiny-12 medium-7 wide-8">
                 <div class="row">
-                    <div class="tiny-7 medium-8">
+                    <div class="tiny-7 medium-7">
                         <h2 style="margin-top:0;">Color presets</h2>
                         <p>Start from the recommended preset or set individual colors</p>
+                        <button id="like-<?php echo $paletteID;?>" class="likes primary-like" onclick="like(this)">
+                            <svg class="heart" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>heart</title>
+                                <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
+                            </svg>
+                            <span class="like-count">
+                                <?php echo $cd->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($paletteID))[0];?>
+                            </span>
+                        </button>
                     </div>
-                    <div class="tiny-5 medium-4 end-tiny">
+                    <div class="tiny-5 medium-5 end-tiny">
                         
                         <?php
                         if ($categories_array[0] != "") {
@@ -57,19 +77,10 @@ $colorIDs = array_unique($colorIDs);
                         }
                         ?>
                         
-                        <button id="like-<?php echo $paletteID;?>" class="likes primary-like" onclick="like(this)">
-                            <svg class="heart" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                                <title>heart</title>
-                                <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
-                            </svg>
-                            <span class="like-count">
-                                <?php echo $cd->DatabasePrepareQueryReturnFirstField( "SELECT likes FROM likes WHERE palette = ?", array($paletteID))[0];?>
-                            </span>
-                        </button>
-                        
                         <p class="date" style="">
                             <?php echo $cd->DatabasePrepareQueryReturnFirstField("SELECT created FROM palettes WHERE id = ?", array($paletteID))[0];?>
                         </p>
+
                     </div>
                     <div class="tiny-12">
                         <hr>
@@ -379,7 +390,7 @@ $colorIDs = array_unique($colorIDs);
             </div>
 
             <div class="tiny-12">
-                <h2>Description</h2>
+                <h2>Description of <?php echo $name?></h2>
                 <p style="line-height:1.5"><?php echo $cd->DatabasePrepareQueryReturnFirstField("SELECT description FROM palettes WHERE id = ?", array($paletteID))[0];?></p><br>
             </div>
         </div>
@@ -398,7 +409,8 @@ $colorIDs = array_unique($colorIDs);
                     $categoryList .= $category.",";
                 }
                 $categoryList = rtrim($categoryList, ',');
-                $palettes = $cd->DatabasePrepareQuery('SELECT * FROM palettes WHERE categories = ?', array($categoryList));
+
+                $palettes = $cd->DatabasePrepareQuery('SELECT * FROM palettes WHERE categories LIKE ?', array("%".$categories_array[0].",".$categories_array[1]."%"));
                 $morePalettes = $cd->DatabasePrepareQuery('SELECT count(id) as count FROM palettes WHERE categories = ?', array($categoryList));
                 foreach ($morePalettes as $palette) {
                     $showMorePalettes = $palette['count'];

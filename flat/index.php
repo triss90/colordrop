@@ -1,6 +1,9 @@
 <?php
 include("../_inc/_app.php");
 $cd = new ColorDrop;
+$title = "ColorDrop | Flat Colors";
+$description = "";
+$keywords = "";
 include("../_inc/_functions.php");
 include("../_inc/header.php");
 ?>

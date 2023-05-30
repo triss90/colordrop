@@ -1,6 +1,9 @@
  class="large"<?php
 include("../_inc/_app.php");
 $cd = new ColorDrop;
+$title = "ColorDrop | About";
+$description = "";
+$keywords = "";
 include("../_inc/_functions.php");
 include("../_inc/header.php");
 ?>
