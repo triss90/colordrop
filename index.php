@@ -29,7 +29,7 @@ $randomID = (rand(1,$totalIDs));
         <br><br>
         <a class="button" href="/palette/?id=<?php echo $randomID; ?>">I'm Feeling Lucky</a>
         <wbr>
-        <a class="button" href="/liked/>">Show Favourites</a> 
+        <a class="button" href="/liked/">Show Favourites</a> 
     </div>
 </header>
 
