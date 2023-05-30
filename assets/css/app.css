@@ -25,8 +25,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --border-color: #000;
-    --background-color: #25252a;
-    --palette-color: #111;
+    --background-color: #31315d;
+    --palette-color: #1a1a41;
     --text-color: #f4f4f4;
     --text-color-inverted: #333;
     --text-color-2: #91919a;
@@ -159,6 +159,11 @@ h1.linear-wipe a {
   padding: 0 3rem;
   display: flex;
   justify-content: space-between;
+}
+@media (prefers-color-scheme: dark) {
+  #site-navigaion {
+    background: var(--palette-color);
+  }
 }
 @media (max-width: 768px) {
   #site-navigaion {
