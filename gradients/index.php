@@ -9,6 +9,8 @@ include("../_inc/header.php");
 include("../_inc/loader.php");
 ?>
 
+<link rel="stylesheet" href="assets/css/gradient.css">
+
 <body id="gradients">
 
 <?php include("../_inc/navigation.php"); ?>
