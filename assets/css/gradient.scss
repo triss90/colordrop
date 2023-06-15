@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,900");
-@import url("https://fonts.googleapis.com/css?family=Baloo:400,900");
-@import url("https://fonts.googleapis.com/css?family=Fredoka+One");
-
-$color: #3498db;
+$color: var(--highlight-1);
 
 @mixin checkered-background($bg-size) {
 	background: linear-gradient(
@@ -148,7 +144,6 @@ $color: #3498db;
 		border-radius: 2px;
 
 		transition: all 0.2s;
-		font-family: "Socicon" !important;
 		color: white;
 		i {
 			font-size: 0.5em;
@@ -204,21 +199,18 @@ $color: #3498db;
 			-webkit-background-clip: text;
 			background-clip: text;
 			color: transparent;
-			font-family: "Fredoka One";
 			animation: move-gradient 30s ease infinite reverse;
 		}
 
 		h1 {
 			font-size: 1.5em;
 			margin: 15px 0;
-			font-family: Baloo;
 			color: $color;
 		}
 
 		h2 {
 			font-size: 1.2em;
 			margin: 5px 0;
-			font-family: Baloo;
 			color: $color;
 		}
 
@@ -1301,5 +1293,75 @@ input[type="range"] {
 	}
 	100% {
 		transform: translateY(0);
+	}
+}
+
+.user-presets:after {
+	display: none;
+}
+.vc-chrome {
+	box-shadow: none !important;
+}
+.vc-chrome-toggle-icon svg path {
+	//margin-top: 0px !important;
+	fill: var(--text-color);
+}
+.vc-chrome-toggle-icon:hover svg path {
+	//margin-top: 0px !important;
+	fill: var(--palette-color);
+}
+
+@media (prefers-color-scheme: dark) {
+	// :root {
+	// 	--border-color: #000;
+	// 	--background-color: #31315d;
+	// 	--palette-color: #1a1a41;
+	// 	--text-color: #f4f4f4;
+	// 	--text-color-inverted: #333;
+	// 	--text-color-2: #91919a;
+	// 	--highlight-1: #1eafed;
+	// }
+	.controls-wrapper,
+	.vc-chrome-body {
+		background: var(--palette-color) !important;
+	}
+	.controls-wrapper h3 {
+		color: var(--text-color) !important;
+	}
+	.more-presets,
+	.copy-css,
+	.reset,
+	.add-gradient {
+		border-color: var(--text-color) !important;
+		color: var(--text-color) !important;
+	}
+	.more-presets:hover,
+	.copy-css:hover,
+	.reset:hover,
+	.add-gradient:hover {
+		background-color: var(--highlight-1) !important;
+	}
+	.gradient-box {
+		border: 1px solid var(--text-color);
+	}
+	.control.circle svg g circle:nth-child(1) {
+		stroke: var(--text-color) !important;
+	}
+	.control.circle svg g circle:nth-child(3) {
+		fill: var(--highlight-1) !important;
+	}
+	.amount span input {
+		background: var(--palette-color) !important;
+		color: var(--text-color) !important;
+	}
+	.colors-slider:after {
+		background-color: var(--background-color) !important;
+	}
+	.colors-options-container:before,
+	.colors-options-container:after {
+		background-color: var(--background-color) !important;
+	}
+	.user-generated {
+		border-color: var(--background-color) !important;
 	}
 }
