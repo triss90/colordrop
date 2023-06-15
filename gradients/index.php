@@ -9,7 +9,7 @@ include("../_inc/header.php");
 include("../_inc/loader.php");
 ?>
 
-<link rel="stylesheet" href="assets/css/gradient.css">
+<link rel="stylesheet" href="../assets/css/gradient.css">
 
 <body id="gradients">
 
@@ -188,21 +188,18 @@ include("../_inc/loader.php");
 					<span class='close' @click="clearNotification">×</span>
 				</div>
 			</template>
-			<
+		</div>
 
 
 		
 	</div>
 </main>
 
-<?php // include("../_inc/footer.php"); ?>
-<?php // include("../_inc/scripts.php"); ?>
-<!-- <script src="../assets/js/gradient.min.js"></script> -->
 
 <script src="https://unpkg.com/vue@2.5.21"></script>
 <script src="https://unpkg.com/vue-color@2.7.0"></script>
 <script src="https://unpkg.com/vue-circle-slider@1.0.2"></script>
-<script src="gradients/gradient.js"></script>
+<script src="/gradients/gradient.js"></script>
 
 <script src="//m.servedby-buysellads.com/monetization.custom.js"></script>
 <script src="../assets/js/bsa.min.js"></script>
