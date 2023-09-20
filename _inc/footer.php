@@ -8,7 +8,7 @@
 		<a href="#" id="open_preferences_center">Update cookies preferences</a>
 	</p>
 	<div id="badge"></div>
-	<script src="https://cdn.jsdelivr.net/npm/co2.observer@1.1.0/badge.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/co2.observer@1.2.0/badge.min.js"></script>
 	<script>
 	const myBadge = new Badge({
 		target: '#badge',
