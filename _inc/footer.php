@@ -7,6 +7,15 @@
 		<br><br>
 		<a href="#" id="open_preferences_center">Update cookies preferences</a>
 	</p>
+	<div id="badge"></div>
+	<script src="https://cdn.jsdelivr.net/npm/co2.observer@1.1.0/badge.min.js"></script>
+	<script>
+	const myBadge = new Badge({
+		target: '#badge',
+		key: '425e5e5a59100505494518044548594f585c4f580559435e4f05155f58461749454645584e58455a044345066b01061a041a1f4d0a696518055c434f5d0669464f4b444f580a5e424b440a131e0f0a454c0a5a4b4d4f590a5e4f595e4f4e'
+	});
+	myBadge.init();
+	</script>
 </footer>
 <div class="totop" id="totop" onclick="scrollToTop();">^</div>
 <div class="ad" id="carbonAd">
